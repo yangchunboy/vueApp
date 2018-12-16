@@ -1,0 +1,26 @@
+{
+  "name": "vueapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yangchunboy/vueApp.git"
+  },
+  "keywords": [
+    "vue"
+  ],
+  "author": "chuck",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yangchunboy/vueApp/issues"
+  },
+  "homepage": "https://github.com/yangchunboy/vueApp#readme",
+  "devDependencies": {
+    "webpack": "^4.27.1",
+    "webpack-cli": "^3.1.2"
+  }
+}
