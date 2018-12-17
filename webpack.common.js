@@ -2,11 +2,11 @@ const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const autoprefixer = require('autoprefixer');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 module.exports = {
   entry: [
     './src/main.js',// 编译js的入口文件
-    './src/style.less' // 编译less的入口文件
   ],
   output: { // 编译完成的js会放在dist文件夹下命名为bundle.js
     filename: 'bundle.js',
@@ -18,7 +18,8 @@ module.exports = {
         title: 'Production', // 用来生成页面的 title 元素
         inject: true, // 注入所有的资源到特定的 template 或者 templateContent 中，如果设置为 true 或者 body，所有的 javascript 资源将被放置到 body 元素的底部，'head' 将放置到 head 元素中
         template: './src/index.html', // 模板文件路径
-    })
+    }),
+    new VueLoaderPlugin()
   ],
   module: {
     rules: [
@@ -67,7 +68,16 @@ module.exports = {
         }, {
           loader: 'less-loader' // compiles Less to CSS
         }]
+      },
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader'
       }
     ]
+  },
+  resolve: {
+    alias: {
+          'vue': 'vue/dist/vue.js'
+    }
   }
 };
